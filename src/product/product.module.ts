@@ -1,7 +1,20 @@
 import { Module } from "@nestjs/common";
-import { ProductController } from './product.controller';
+
+import { TypegooseModule } from "nestjs-typegoose";
+
+import { ProductController } from "./product.controller";
 
 @Module({
+  imports: [
+    TypegooseModule.forFeature([
+      {
+        typegooseClass: ProductModule,
+        schemaOptions: {
+          collection: "Product"
+        }
+      }
+    ])
+  ],
   controllers: [ProductController]
 })
 export class ProductModule {}
