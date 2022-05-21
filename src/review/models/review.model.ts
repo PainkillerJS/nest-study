@@ -1,5 +1,7 @@
-import { Base } from "@typegoose/typegoose/lib/defaultClasses";
 import { prop } from "@typegoose/typegoose";
+import type { Base } from "@typegoose/typegoose/lib/defaultClasses";
+
+import { Types } from "mongoose";
 
 export interface ReviewModel extends Base {}
 
@@ -17,5 +19,5 @@ export class ReviewModel {
   rating: number;
 
   @prop()
-  createdDate: Date;
+  productId: Types.ObjectId;
 }
