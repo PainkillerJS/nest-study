@@ -17,9 +17,6 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "strict": true,
-    "paths": {
-      "@review/*": ["./src/review/*"]
-    }
+    "strict": true
   }
 }

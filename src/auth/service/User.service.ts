@@ -1,14 +1,14 @@
 import { Injectable } from "@nestjs/common";
-import { InjectModel } from "nestjs-typegoose";
 
 import { ModelType } from "@typegoose/typegoose/lib/types";
-import { genSaltSync, hashSync } from "bcryptjs";
+import { InjectModel } from "nestjs-typegoose";
 
-import { AuthDto } from "./dto/auth.dto";
-import { UserModel } from "./models/user.model";
+import { AuthDto } from "../dto/auth.dto";
+import { genSaltSync, hashSync } from "bcryptjs";
+import { UserModel } from "../models/user.model";
 
 @Injectable()
-export class AuthService {
+export class UserService {
   constructor(@InjectModel(UserModel) private readonly userModel: ModelType<UserModel>) {}
 
   async createUser(dto: AuthDto) {
