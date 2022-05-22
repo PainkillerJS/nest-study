@@ -1,8 +1,9 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, UsePipes, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, UseGuards, UsePipes, ValidationPipe } from "@nestjs/common";
 
 import { CreateReviewDto } from "./dto/create-review.dto";
 import { ReviewService } from "./review.service";
 import { ReviewConstsEnum } from "./constants/review.consts.";
+import { JwtAuthGuards } from "../auth/guards/jwt.guard";
 
 @Controller("review")
 export class ReviewController {
@@ -23,6 +24,7 @@ export class ReviewController {
     }
   }
 
+  @UseGuards(JwtAuthGuards)
   @Get("byProduct/:productId")
   async getByProduct(@Param("productId") productId: string) {
     return this.reviewService.findByProductId(productId);

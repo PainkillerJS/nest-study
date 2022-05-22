@@ -3,7 +3,7 @@ import { Controller, Post, HttpCode, Body, UsePipes, ValidationPipe, HttpExcepti
 import { AuthDto } from "./dto/auth.dto";
 import { AuthService } from "./service/auth.service";
 import { AuthConstants } from "./constants/auth.constants";
-import { UserService } from "./service/User.service";
+import { UserService } from "./service/user.service";
 
 @Controller("auth")
 export class AuthController {

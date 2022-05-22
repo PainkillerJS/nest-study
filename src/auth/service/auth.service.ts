@@ -6,7 +6,7 @@ import { compareSync } from "bcryptjs";
 
 import { UserModel } from "../models/user.model";
 import { AuthConstants } from "../constants/auth.constants";
-import { UserService } from "./User.service";
+import { UserService } from "./user.service";
 import { JwtService } from "@nestjs/jwt";
 
 @Injectable()
