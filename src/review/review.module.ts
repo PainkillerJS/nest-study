@@ -3,12 +3,13 @@ import { TypegooseModule } from "nestjs-typegoose";
 
 import { ReviewController } from "./review.controller";
 import { ReviewService } from "./review.service";
+import { ReviewModel } from "./models/review.model";
 
 @Module({
   imports: [
     TypegooseModule.forFeature([
       {
-        typegooseClass: ReviewModule,
+        typegooseClass: ReviewModel,
         schemaOptions: {
           collection: "Review"
         }
