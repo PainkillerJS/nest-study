@@ -22,13 +22,7 @@ export class ProductModel extends TimeStamps {
   price: number;
 
   @prop()
-  oldPrice: number;
-
-  @prop()
   credit: number;
-
-  @prop()
-  calculateRating: number;
 
   @prop()
   description: string;
@@ -47,4 +41,7 @@ export class ProductModel extends TimeStamps {
 
   @prop({ type: () => [ProductCharacteristic], _id: false })
   characteristics: ProductCharacteristic[];
+
+  @prop()
+  oldPrice?: number;
 }
