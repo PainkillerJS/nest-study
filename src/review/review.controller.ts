@@ -4,6 +4,7 @@ import { CreateReviewDto } from "./dto/create-review.dto";
 import { ReviewService } from "./review.service";
 import { ReviewConstsEnum } from "./constants/review.consts.";
 import { JwtAuthGuards } from "../auth/guards/jwt.guard";
+import { ValidationIdPipe } from "../common/pipes/validation-id.pipe";
 
 @Controller("review")
 export class ReviewController {
@@ -16,7 +17,7 @@ export class ReviewController {
   }
 
   @Delete(":id")
-  async delete(@Param("id") id: string) {
+  async delete(@Param("id", ValidationIdPipe) id: string) {
     const deleteDic = await this.reviewService.delete(id);
 
     if (!deleteDic) {
@@ -26,13 +27,13 @@ export class ReviewController {
 
   @UseGuards(JwtAuthGuards)
   @Get("byProduct/:productId")
-  async getByProduct(@Param("productId") productId: string) {
+  async getByProduct(@Param("productId", ValidationIdPipe) productId: string) {
     return this.reviewService.findByProductId(productId);
   }
 
   @UseGuards(JwtAuthGuards)
   @Delete("byProduct/:productId")
-  async deleteByProductId(@Param("productId") productId: string) {
+  async deleteByProductId(@Param("productId", ValidationIdPipe) productId: string) {
     return this.reviewService.deleteByProductId(productId);
   }
 }
