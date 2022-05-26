@@ -36,7 +36,7 @@ export class TopPageModel {
   firstCategory: TopLevelCategory;
 
   @prop()
-  SecondCategory: string;
+  secondCategory: string;
 
   @prop({ unique: true })
   alias: string;
